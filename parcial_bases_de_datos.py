@@ -1,8 +1,11 @@
 import os
 import sqlite3
+import numpy as np
+import matplotlib.pyplot as plt
+import sympy as sp
 
 class Database:
-    def __init__(self, *args):
+    def init(self, *args):
         if args:
             self.filepaths = args
         else:
@@ -30,9 +33,9 @@ class Database:
     def close(self):
         # Cerrar la conexión a la base de datos
         self.db.close()
-        def __init__(self):
-         self.db = sqlite3.connect("database.db")
-        self.cursor = self.db.cursor()
+        def init(self):
+            self.db = sqlite3.connect("database.db")
+            self.cursor = self.db.cursor()
 
     def generate(self):
         # Generar tabla team
@@ -56,3 +59,107 @@ class Database:
     def close(self):
         # Cerrar la conexión a la base de datos
         self.db.close()
+    
+    def regreLineal(self):
+
+        global x1
+        global y1
+        global xlist
+        global ylist
+        global regrecionLineal
+        global m
+        global b
+        global r2
+
+        x1 =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        y1= [1,2,2,4,5,4,6,4,6,7,9,10,11,12,10]
+        n = len(x1)
+
+        xlist = np.array(x1)
+        ylist = np.array(y1)
+        sumx = sum(x1)
+        sumy = sum(y1)
+
+        sumx2 = sum(xlist*xlist)
+        sumy2 = sum(ylist*ylist)
+        sumxy = sum(xlist*ylist)
+
+        promx = sumx/n
+        promy = sumy/n
+        m = (sumx*sumy-n*sumxy)/(sumx**2 -n*sumx2)
+        b = promy-m*promx
+
+        regrecionLineal = m*xlist+b #puntos para graficar
+        
+        print(regrecionLineal) #verificar que se tenga todo
+
+        sigmax = np.sqrt((sumx2/n) - promx**2)
+        sigmay = np.sqrt((sumy2/n) - promy**2)
+        sigmaxy = (sumxy/n) - (promx*promy)
+        r2 = (sigmaxy/(sigmax*sigmay))**2
+
+        print("el coeficiente de regrecion lineal es:  {}".format(r2))
+    
+    def graficarRLineal(self):
+
+        plt.plot(xlist, ylist, 'o', label='datos')
+        plt.plot(xlist, m*x+b, label='ajuste')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title("El coeficiente de regrecion lineal es: {}".format(r2))
+        plt.grid()
+        plt.legend()
+        plt.show()
+
+   
+
+
+
+    def graficarIntegralDerv(self, fun):
+
+        #primero calculamos la derivada
+        X= sp.symbols('X')
+        
+        derivada =sp.diff(fun(X),X)
+
+        integral = sp.integrate(fun(X),X)
+
+        print(derivada)
+        print(integral)
+
+
+#metodo main para visualizar las graficas del punto 13
+def main():
+
+    X= sp.symbols('X')
+    objclase = Database()
+
+    a =lambda x: X**2 +3*X -4
+
+    b = lambda x: sp.cos(x) - x**2
+
+    c = lambda x: sp.sin(x)**2 - 2*sp.sin(x) + x
+
+
+    while True:
+        print("ESCOJA UNA FUNCION PARA GRAFICAR SU DERIVADA Y SU INTEGRAL".center(50,"*"))
+ 
+        print("a. x^2 + 3*x -4 \n b. x^2 + 3*x -4 \n c. x^2 + 3*x -4")
+        ans = input("Escoje una opcion: " )
+
+        if (ans =="a"):
+
+            objclase.graficarIntegralDerv(a)
+            break
+        elif (ans == 'b'):
+
+            objclase.graficarIntegralDerv(b)
+            break
+        elif (ans == 'c'):
+
+            objclase.graficarIntegralDerv(c)
+            break
+        else:
+            print("OPCION ERRONEA, ESCOJA UNA OPCION CORRECTA EN MINUSCULAS")
+
+main()
