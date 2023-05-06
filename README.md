@@ -1,13 +1,13 @@
 # parcial_bases_de_datos-
 
-README
+
 
 Este es un proyecto en Python que permite leer archivos CSV y generar una base de datos SQLite a partir de ellos. Además, ofrece diversas funcionalidades para manipular la base de datos, como llenarla con datos predefinidos, unir tablas mediante join y leer su contenido.
 
-Requisitos
+#Requisitos
 Para poder ejecutar este código, es necesario tener instalados los siguientes paquetes:
 
-pandas
+`#000000`pandas
 numpy
 matplotlib
 sympy
