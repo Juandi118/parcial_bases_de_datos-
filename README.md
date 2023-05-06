@@ -7,11 +7,11 @@ Este es un proyecto en Python que permite leer archivos CSV y generar una base d
 ## Requisitos
 Para poder ejecutar este código, es necesario tener instalados los siguientes paquetes:
 
-#000000 pandas
-numpy
-matplotlib
-sympy
-sqlite3
+* pandas
+* numpy
+* matplotlib
+* sympy
+* sqlite3
 ## Funcionamiento
 El código se compone de dos clases: Databasearchivos y Database. La primera se encarga de leer los archivos CSV y almacenarlos en una lista de pandas dataframes. La segunda se encarga de generar la base de datos y realizar las operaciones sobre ella.
 
