@@ -37,9 +37,9 @@ close(): Este método se encarga de cerrar la conexión a la base de datos SQLit
 ## Función menu()
 La función menu() se encarga de mostrar un menú al usuario y procesar sus selecciones. Primero, crea una instancia de la clase Database. Luego, muestra el menú con las siguientes opciones:
 
-1: Generar base de datos
-2: Llenar base de datos con datos predefinidos
-3: Realizar join de tablas
-4: Leer contenido de tabla data
-5: Salir del programa
+* 1: Generar base de datos
+* 2: Llenar base de datos con datos predefinidos
+* 3: Realizar join de tablas
+* 4: Leer contenido de tabla data
+* 5: Salir del programa
 Al seleccionar una opción, se ejecuta el método correspondiente de la clase Database
