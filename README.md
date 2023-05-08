@@ -36,25 +36,25 @@ Si el archivo no se encuentra, el método imprime un mensaje de error.
 
 La clase Database permite generar, llenar, unir y leer bases de datos SQLite3. Los métodos y atributos de la clase se explican a continuación:
 
-*init(self, filepaths): El método constructor de la clase. Toma como entrada una lista de filepaths y crea una conexión a una base de datos SQLite3 llamada "database.db". Si no se proporcionan filepaths, se genera una lista de archivos .txt en el directorio actual y se toman como filepaths. También inicializa el atributo cursor de la conexión a la base de datos.
+* init(self, filepaths): El método constructor de la clase. Toma como entrada una lista de filepaths y crea una conexión a una base de datos SQLite3 llamada "database.db". Si no se proporcionan filepaths, se genera una lista de archivos .txt en el directorio actual y se toman como filepaths. También inicializa el atributo cursor de la conexión a la base de datos.
 
-*generate(self): Método que genera una tabla llamada "data" en la base de datos y llena la tabla con los datos de los archivos indicados en los filepaths proporcionados en la inicialización de la clase o en la lista generada si no se proporcionó ninguno.
+* generate(self): Método que genera una tabla llamada "data" en la base de datos y llena la tabla con los datos de los archivos indicados en los filepaths proporcionados en la inicialización de la clase o en la lista generada si no se proporcionó ninguno.
 
-*llenar(self): Método que genera dos tablas en la base de datos ("team" y "hero") y las llena con datos específicos. En la tabla "team" se crean dos filas, mientras que en la tabla "hero" se crean tres filas. Estos datos son meramente ejemplificativos y pueden ser cambiados en el código.
+* llenar(self): Método que genera dos tablas en la base de datos ("team" y "hero") y las llena con datos específicos. En la tabla "team" se crean dos filas, mientras que en la tabla "hero" se crean tres filas. Estos datos son meramente ejemplificativos y pueden ser cambiados en el código.
 
-*join(self): Método que realiza una unión (join) entre las tablas "team" y "hero" y devuelve los resultados de la consulta. Este método utiliza la cláusula INNER JOIN para combinar ambas tablas.
+* join(self): Método que realiza una unión (join) entre las tablas "team" y "hero" y devuelve los resultados de la consulta. Este método utiliza la cláusula INNER JOIN para combinar ambas tablas.
 
-*read(self): Método que lee y devuelve todos los datos de la tabla "data" de la base de datos.
+* read(self): Método que lee y devuelve todos los datos de la tabla "data" de la base de datos.
 
-*close(self): Método que cierra la conexión a la base de datos.
+* close(self): Método que cierra la conexión a la base de datos.
 
 Además, la clase utiliza un decorador (decorador2) para imprimir mensajes de información en los métodos "generate", "llenar" y "join".
 
-*regreLineal: calcula la regresión lineal de una lista de puntos (x, y). Primero, se definen los valores de x1 y y1. Luego, se calculan la suma de los valores de x1 y y1, la suma de los cuadrados de los valores de x1 y y1, y la suma de los productos de los valores de x1 y y1. Con estos valores, se calcula la pendiente m y la ordenada al origen b de la regresión lineal. Finalmente, se define la función de regresión lineal regrecionLineal.
+* regreLineal: calcula la regresión lineal de una lista de puntos (x, y). Primero, se definen los valores de x1 y y1. Luego, se calculan la suma de los valores de x1 y y1, la suma de los cuadrados de los valores de x1 y y1, y la suma de los productos de los valores de x1 y y1. Con estos valores, se calcula la pendiente m y la ordenada al origen b de la regresión lineal. Finalmente, se define la función de regresión lineal regrecionLineal.
 
-*graficarRLineal: grafica la regresión lineal calculada por el método regreLineal. El método tiene dos argumentos opcionales: color1 y color2. Estos argumentos permiten personalizar el color de los puntos de datos y de la línea de regresión, respectivamente. Si se proporcionan valores inválidos para color1 o color2, se utiliza el color verde para los puntos de datos y el color azul para la línea de regresión. La función utiliza la biblioteca Matplotlib para crear el gráfico.
+* graficarRLineal: grafica la regresión lineal calculada por el método regreLineal. El método tiene dos argumentos opcionales: color1 y color2. Estos argumentos permiten personalizar el color de los puntos de datos y de la línea de regresión, respectivamente. Si se proporcionan valores inválidos para color1 o color2, se utiliza el color verde para los puntos de datos y el color azul para la línea de regresión. La función utiliza la biblioteca Matplotlib para crear el gráfico.
 
-*graficarIntegralDerv: grafica la función dada, su derivada y su integral. La función recibe un argumento obligatorio funcion, que debe ser una expresión lambda que defina la función a graficar. También puede recibir un argumento opcional nombre, que se utiliza para etiquetar la función en la leyenda del gráfico. El método utiliza la biblioteca SymPy para calcular la derivada e integral de la función dada. La función utiliza la biblioteca Matplotlib para crear el gráfico.
+* graficarIntegralDerv: grafica la función dada, su derivada y su integral. La función recibe un argumento obligatorio funcion, que debe ser una expresión lambda que defina la función a graficar. También puede recibir un argumento opcional nombre, que se utiliza para etiquetar la función en la leyenda del gráfico. El método utiliza la biblioteca SymPy para calcular la derivada e integral de la función dada. La función utiliza la biblioteca Matplotlib para crear el gráfico.
 
 
 ## Función menu()
