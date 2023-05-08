@@ -1,0 +1,11 @@
+librerias
+
+import os
+import pandas as pd
+import os
+import sqlite3
+import numpy as np
+import matplotlib.pyplot as plt
+import sympy as sp
+import argparse
+import time
